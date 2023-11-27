@@ -1,4 +1,3 @@
- def magic_calculation(a, b):
-    result = 98
-    result = result + pow(a, b)
-    return result
+#!/usr/bin/python3
+def magic_calculation(a, b):
+    return (98 + (a ** b))
