@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-import alphabet_103
+import alph_103
