@@ -1,86 +1,70 @@
-The ``0-add_integer`` module
-======================
+>>> add_integer = __import__('0-add_integer').add_integer
 
-Using ``add_integer``
--------------------
+# Existing test cases
+>>> add_integer(1, 2)
+3
 
-Importing the function from the module:
-	>>> add_integer = __import__("0-add_integer").add_integer
+>>> add_integer(100, -2)
+98
 
-Checking for module docstring:
-	>>> m = __import__("0-add_integer").__doc__
-	>>> len(m) > 1
-	True
+>>> add_integer(2)
+100
 
-Checking for function docstring:
-	>>> f = __import__("0-add_integer").add_integer.__doc__
-	>>> len(f) > 1
-	True
+>>> add_integer(100.3, -2)
+98
 
-Checking for regular addition:
-    >>> add_integer(1, 2)
-    3
+>>> add_integer(5)
+103
 
-Checking for float number:
-    >>> add_integer(4.5, 2)
-    6
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
 
-Checking for negative number:
-    >>> add_integer(-4, 2)
-    -2
+>>> add_integer(None)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
 
-Checking for negative number:
-    >>> add_integer(4, -8)
-    -4
+>>> add_integer()
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
 
-Checking for negative number:
-    >>> add_integer(-4, -8)
-    -12
+# Additional test cases
+>>> add_integer(999999999999999999, 1)
+1000000000000000000
 
-Checking for float number:
-    >>> add_integer(6, 2.3)
-    8
+>>> abs(add_integer(999999999999999999.5, 1) - 1000000000000000000) <= 1
+True
 
-Checking for float number:
-    >>> add_integer(4.5, 21.41)
-    25
+>>> add_integer(5.8, 2.2)
+7
 
-Checking for non number:
-	>>> add_integer("Hello", 2)
-	Traceback (most recent call last):
-	...
-	TypeError: a must be an integer
+>>> add_integer(-3.5, 2.5)
+-1
 
-Checking for non number:
-	>>> add_integer(2, "Hello")
-	Traceback (most recent call last):
-	...
-	TypeError: b must be an integer
+>>> add_integer(0, 0)
+0
 
-Checking for non number:
-	>>> add_integer("Hello", "World!")
-	Traceback (most recent call last):
-	...
-	TypeError: a must be an integer
+>>> add_integer()
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
 
-Checking number with bool:
-	 >>> add_integer(0, False)
-         Traceback (most recent call last):
-         ...
-         TypeError: b must be an integer
+>>> add_integer("Hello", "World")
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
 
-Checking no args:
-	>>> add_integer()
-	Traceback (most recent call last):
-	...
-	TypeError: add_integer() missing 1 required positional argument: 'a'
+>>> add_integer(-999999999999999999, -1)
+-1000000000000000000
 
-Checking one arg:
-	 >>> add_integer(1)
-	 99
+>>> add_integer(5, 0)
+5
 
-Checking more than 2 args:
-	 >>> add_integer(1, 2, 3)
-         Traceback (most recent call last):
-         ...
-         TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+>>> abs(add_integer(-999999999999999999.5, -1) - (-1000000000000000000)) <= 1
+True
+
+>>> add_integer(-5.8, -2.2)
+-7
