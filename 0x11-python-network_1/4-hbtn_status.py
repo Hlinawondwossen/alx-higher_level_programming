@@ -1,21 +1,11 @@
 #!/usr/bin/python3
-
 """
-- takes in a URL
-- sends a request to the URL 
-- displays the body of the response (decoded in utf-8)
+requests model
 """
 
-import sys
-import urllib.parse
-import urllib.request
-
-
-if __name__ == "__main__":
-    url = sys.argv[1]
-    value = {"email": sys.argv[2]}
-    data = urllib.parse.urlencode(value).encode("ascii")
-
-    request = urllib.request.Request(url, data)
-    with urllib.request.urlopen(request) as response:
-        print(response.read().decode("utf-8"))
+if __name__ == '__main__':
+    import requests
+    html = requests.get('https://alx-intranet.hbtn.io/status')
+    print("Body response:")
+    print("\t- type: {}".format(html.text.__class__))
+    print("\t- content: {}".format(html.text)))
