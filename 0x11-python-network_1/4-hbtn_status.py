@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 """
-requests model
+script that fetches https://alx-intranet.hbtn.io/status.
 """
+import requests
 
-if __name__ == '__main__':
-    import requests
-    html = requests.get('https://alx-intranet.hbtn.io/status')
-    print("Body response:")
-    print("\t- type: {}".format(html.text.__class__))
-    print("\t- content: {}".format(html.text)))
+
+if __name__ == "__main__":
+    url = "https://alx-intranet.hbtn.io/status"
+    response = requests.get(url)
+    content = response.text
+    print('Body response:')
+    print('\t- type: {}'.format(type(content)))
+    print('\t- content: {}'.format(content))
